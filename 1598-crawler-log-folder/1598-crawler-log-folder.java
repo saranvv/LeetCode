@@ -5,10 +5,10 @@ class Solution {
             if (s.equals("../")) {
                 if (i>0) {
                     i--;
-                }
-            } else if(!s.equals("./")) {
+                    }
+      } else if(!s.equals("./")) {
                 i++;
-            }
+         }
         }
         return i;
     }
