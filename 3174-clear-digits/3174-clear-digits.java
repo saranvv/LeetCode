@@ -5,7 +5,7 @@ class Solution {
        if(!Character.isDigit(s.charAt(i))){
             str.append(s.charAt(i));
                } 
-           else 
+           else if(Character.isDigit(s.charAt(i))) 
             str.deleteCharAt(str.length()-1);
     }
     return str.toString();
