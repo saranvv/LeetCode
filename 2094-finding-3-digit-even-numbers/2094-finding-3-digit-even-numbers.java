@@ -21,7 +21,7 @@ class Solution {
    int ans[]=new int[arr.size()];
    int p=0;
         for(int i:arr){
-            ans[p++]= ;
+            ans[p++]=i;
       }
   
         return ans;
