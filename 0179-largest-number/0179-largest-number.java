@@ -12,9 +12,7 @@ class Solution {
                 return order2.compareTo(order1);
             }
         });
-        if (numStrs[0].equals("0")) {
-            return "0";
-        }
+      
         StringBuilder largestNumber = new StringBuilder();
         for (String numStr : numStrs) {
             largestNumber.append(numStr);
