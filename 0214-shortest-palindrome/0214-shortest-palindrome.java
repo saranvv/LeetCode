@@ -13,13 +13,13 @@ class Solution {
         String rev =sb.toString();
           int l=0;
         for (int i = 0;i<s.length();i++) {
-            if (rev.startsWith(s.substring(i))) {
-                l=s.length()-i;
+            if (s.startsWith(rev.substring(i))) {
+                l=i;
                 break;
             }
         }
         
-        String ans=rev.substring(0,s.length()-l);
+        String ans=rev.substring(0,l);
         return ans+s;
     }
 }
