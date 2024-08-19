@@ -7,6 +7,7 @@ class Solution {
             if(s.charAt(i)==t.charAt(j) && j>x){
                 count++;
                 x=j;
+                break;
             }
             }
         }
