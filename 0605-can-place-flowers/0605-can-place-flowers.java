@@ -2,7 +2,7 @@ class Solution {
     public boolean canPlaceFlowers(int[] f, int n) {
         int l=f.length;
         if(l<2){
-            if(f[0]==0 && n==1) return true;
+            if(f[0]==0 && n<=1 || (f[0]==1 && n==0 )) return true;
             return false;
         }
 
