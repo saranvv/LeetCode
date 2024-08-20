@@ -1,38 +1,39 @@
 class Solution {
     public int compress(char[] ch) {
-        int n=ch.length;
-        char[] chars=new char[n];
-        int x=0;
-        for(char c:ch){
-        chars[x++]=c;
-        }
-        
-      List<Character> arr=new ArrayList<>();
-        int count;
+     String str="";
+      int count=1;
+     for(int i=1;i<ch.length;i++){
+         
+        if(ch[i]==ch[i-1]){
+            count++;
 
-        for(int i=0;i<n;i++){
-            count=1;
-            if(chars[i]!='#'){
-                 for(int j=i+1;j<n;j++){
-               if(chars[i]==chars[j]){
-                   count++;
-            chars[j]='#';
-               } 
-            }
-            arr.add(ch[i]);
-            if(count>1){
-              String str=count+"";
-              for(int k=0;k<str.length();k++){
-                arr.add(str.charAt(k));
-              }
-             
-            } 
-            }
-        
         }
-       for(int i=0;i<arr.size();i++){
-        ch[i]=arr.get(i);
-       }
-        return arr.size();
+        else{
+            if(count>1){
+                str+=ch[i-1];
+                str+= count+"";
+                count=1;
+            }
+            else{
+                str+=ch[i-1];
+                  count=1;
+            }
+        }
+     }
+    
+      if(count>1){
+                str+=ch[ch.length-1];
+                str+= count+"";
+                count=1;
+            }
+            else{
+                str+=ch[ch.length-1];
+                  count=1;
+            }
+     char[] arr=str.toCharArray();
+      for(int i=1;i<arr.length;i++){
+        ch[i]=arr[i];
+     }
+        return arr.length;
     }
 }
