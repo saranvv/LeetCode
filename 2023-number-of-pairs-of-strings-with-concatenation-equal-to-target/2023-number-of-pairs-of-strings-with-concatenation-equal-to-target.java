@@ -3,8 +3,8 @@ class Solution {
         int count=0;
         for(int i=0;i<nums.length;i++){
             for(int j=0;j<nums.length;j++){
-                    String s=nums[i]+nums[j];
-                    if(s.equals(target) && (i!=j)) count++;
+                   
+                    if((nums[i]+nums[j]).equals(target) && (i!=j)) count++;
                 }
             
         }
