@@ -3,11 +3,10 @@ class Solution {
         int count=0;
         for(int i=0;i<nums.length;i++){
             for(int j=0;j<nums.length;j++){
-                if(i!=j){
                     String s=nums[i]+nums[j];
-                    if(s.equals(target)) count++;
+                    if(s.equals(target) && (i!=j)) count++;
                 }
-            }
+            
         }
         return count;
     }
