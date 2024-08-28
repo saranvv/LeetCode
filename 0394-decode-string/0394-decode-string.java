@@ -1,31 +1,36 @@
 class Solution {
     public String decodeString(String s) {
-         Stack<Character> st = new Stack<>();
-        for(int i=0;i<s.length();i++) {
-            if(s.charAt(i) == ']') {
-                StringBuilder temp = new StringBuilder();
-                 while(!st.isEmpty() && st.peek() != '[') {
-                    temp.insert(0, st.pop());
+        Stack<Character> st=new Stack<>();
+
+        for(int i=0;i<s.length();i++){
+            char c=s.charAt(i);
+            if(c==']'){
+                String str="";
+               while(st.peek()!='['){
+                   str=st.pop()+str;
+               }
+               st.pop();
+               String num="";
+                while(!st.isEmpty() && Character.isDigit(st.peek())){
+                     num=st.pop()+num;
                 }
-                   st.pop();
-                    StringBuilder num = new StringBuilder();
-                while(!st.isEmpty() && st.peek()>='0' && st.peek()<= '9') {
-                    num.insert(0, st.pop());
-                }
-                 int count=Integer.parseInt(num.toString());
-                String ans=temp.toString().repeat(count);
-                 for(int j=0;j<ans.length(); j++) {
-                    st.push(ans.charAt(j));
-                }
-            } else {
-                st.push(s.charAt(i));
+               
+               int n=Integer.parseInt(num);
+               String temp=str.repeat(n);
+               for(char x : temp.toCharArray()){
+                 st.push(x);
+               }
+
             }
+            else{
+               st.push(c);
+            }
+           
         }
-         StringBuilder res = new StringBuilder();
-        while(!st.isEmpty()) {
-            res.insert(0, st.pop());
+        String ans="";
+        for(char i:st){
+            ans+=i;
         }
-        
-        return res.toString();
+        return ans;
     }
 }
